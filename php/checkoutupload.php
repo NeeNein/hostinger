@@ -5,18 +5,7 @@ $pengarang = $_POST['pengarang'];
 $harga = $_POST['harga'];
 $imageUrl = $_POST['imageUrl'];
 
-// Koneksi ke database MySQL
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$dbname = "nusantara";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Periksa koneksi
-if ($conn->connect_error) {
-    die("Koneksi gagal: " . $conn->connect_error);
-}
+include 'koneksi.php';
 
 // Periksa apakah judul sudah ada di database
 $checkQuery = "SELECT * FROM tes WHERE judul = '$judul'";
