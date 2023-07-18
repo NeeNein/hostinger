@@ -198,7 +198,7 @@ foreach ($bukupromo as $bookpromo) {
     <!-- Item Detail -->
   <body>
 
-  <form action="../checkoutupload.php" method="POST">
+  <form action="../php/checkoutupload.php" method="POST">
     <div class="container-item-detail">
       <div class="sub-container-1">
             <a href="' . $bookpromo['image'] . '"><img id="imagePreview"  src="' . $bookpromo['image'] . '" alt="Gambar" name="gambar"></a>
@@ -500,7 +500,7 @@ foreach ($bukubest as $bookbest) {
     <!-- Item Detail -->
   <body>
 
-  <form action="../checkoutupload.php" method="POST">
+  <form action="../php/checkoutupload.php" method="POST">
     <div class="container-item-detail">
       <div class="sub-container-1">
             <a href="' . $bookbest['image'] . '"><img id="imagePreview"  src="' . $bookbest['image'] . '" alt="Gambar" name="gambar"></a>
