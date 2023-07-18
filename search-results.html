@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Results</title>
+  <style>
+    /* CSS styling */
+    .wrapper {
+      text-align: center;
+    }
+
+    .card {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 200px;
+    }
+
+    .card .img img {
+      width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <h3>Search Results</h3>
+    <div id="resultsContainer"></div>
+  </div>
+
+  <script>
+    // JavaScript code
+    // Retrieve search results from URL query parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const results = JSON.parse(decodeURIComponent(urlParams.get('results')));
+
+    const resultsContainer = document.getElementById('resultsContainer');
+
+    results.forEach((card) => {
+      const bookTitle = card.querySelector('h2').innerText;
+      const bookAuthor = card.querySelector('p')?.innerText;
+      const bookPrice = card.querySelector('span')?.innerText;
+      const bookImgSrc = card.querySelector('img').getAttribute('src');
+
+      const resultItem = document.createElement('div');
+      resultItem.classList.add('card');
+
+      const imgContainer = document.createElement('div');
+      imgContainer.classList.add('img');
+      const imgElement = document.createElement('img');
+      imgElement.src = bookImgSrc;
+      imgContainer.appendChild(imgElement);
+
+      const titleElement = document.createElement('h2');
+      titleElement.innerText = bookTitle;
+
+      resultItem.appendChild(imgContainer);
+      resultItem.appendChild(titleElement);
+
+      if (bookAuthor) {
+        const authorElement = document.createElement('p');
+        authorElement.innerText = bookAuthor;
+        resultItem.appendChild(authorElement);
+      }
+
+      if (bookPrice) {
+        const priceElement = document.createElement('span');
+        priceElement.innerText = bookPrice;
+        resultItem.appendChild(priceElement);
+      }
+
+      resultsContainer.appendChild(resultItem);
+    });
+  </script>
+</body>
+</html>

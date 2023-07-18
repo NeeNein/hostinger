@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Detail Buku</title>
+</head>
+<body>
+  <div class="wrapper">
+    <h1>Detail Buku</h1>
+
+    <div id="bookDetails"></div>
+
+    <script>
+      // JavaScript code
+      // Mendapatkan nilai parameter "search" dari URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const searchValue = urlParams.get('search');
+
+      // Mencari elemen buku yang sesuai dengan nilai pencarian
+      const cards = document.getElementsByClassName('card2');
+      let matchedCard = null;
+
+      for (let i = 0; i < cards.length; i++) {
+        const card = cards[i];
+        const title = card.getElementsByTagName('h2')[0].innerText.toLowerCase();
+
+        if (title.includes(searchValue)) {
+          matchedCard = card;
+          break;
+        }
+      }
+
+      if (matchedCard) {
+        // Mendapatkan data buku dari elemen yang cocok
+        const bookTitle = matchedCard.getElementsByTagName('h2')[0].innerText;
+        const bookAuthor = matchedCard.getElementsByTagName('p')[0].innerText;
+        const bookPrice = matchedCard.getElementsByTagName('span')[0].innerText;
+        const bookImage = matchedCard.getElementsByTagName('img')[0].getAttribute('src');
+
+        // Membuat elemen HTML untuk menampilkan detail buku
+        const bookDetails = document.getElementById('bookDetails');
+        const bookElement = document.createElement('div');
+        bookElement.innerHTML = `
+          <div class="img"><img src="${bookImage}" alt="img" draggable="false"></div>
+          <h2>${bookTitle}</h2>
+          <p>${bookAuthor}</p>
+          <span>${bookPrice}</span>
+        `;
+        bookDetails.appendChild(bookElement);
+      } else {
+        // Jika buku tidak ditemukan, tampilkan pesan
+        const bookDetails = document.getElementById('bookDetails');
+        bookDetails.innerHTML = 'Buku tidak ditemukan.';
+      }
+    </script>
+  </div>
+</body>
+</html>

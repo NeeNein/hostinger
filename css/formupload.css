@@ -1,0 +1,284 @@
+/* Gaya umum */
+body {
+  background-color: #ff2171;
+}
+
+.formupload {
+  margin: auto;
+  padding: 0;
+  background-color: white;
+  border: none; /* Menghilangkan border */
+  width: 800px;
+  height: 100vh; /* Menggunakan viewport height untuk mengisi tinggi seluruh halaman */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.formupload h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.formupload .form-box {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Gaya input box */
+.formupload .inputbox {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.formupload ion-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #888;
+}
+
+.formupload input[type="text"],
+.formupload input[type="file"],
+.formupload textarea {
+  width: 100%;
+  padding: 10px 35px 10px 30px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.formupload select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.formupload select option {
+  padding: 5px;
+}
+
+select option {
+  padding: 5px;
+}
+
+.formupload textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.formupload label {
+  font-size: 16px;
+}
+
+/* Gaya tombol submit */
+.formupload button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.formupload button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .formupload .form-box {
+    max-width: 100%;
+  }
+
+  .formupload input[type="text"],
+  .formupload input[type="file"],
+  .formupload textarea {
+    padding: 10px;
+  }
+}
+
+/* navbar */
+
+.nav {
+  position: fixed;
+  left: -500px;
+  top: 0;
+  padding: 20px;
+  width: 300px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+
+  color: white;
+  transition: left 0.3s ease;
+}
+
+.nav h3 {
+  color: white;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.nav.open {
+  left: 0;
+}
+
+.nav:before {
+  content: "";
+  display: block;
+  height: 50px;
+}
+
+.nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 50px; /* Menyesuaikan margin top untuk membuat ruang antara bagian atas dan elemen-elemen dalam navbar */
+}
+
+.nav ul li {
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  background-color: #ff2171;
+  padding: 20px;
+  text-align: center;
+}
+
+.nav ul li:last-child {
+  border-bottom: none;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+}
+
+.navbar-toggle {
+  position: absolute;
+  left: 20px;
+  top: 12px;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.navbar-toggle svg {
+  width: 50px;
+  height: 50px;
+  fill: white;
+}
+
+@media (max-width: 767px) {
+  .nav {
+    width: 100%;
+  }
+
+  .navbar-toggle {
+    left: 20px;
+    top: 20px;
+  }
+}
+/* Navbar Atas */
+
+.nav-atas {
+  background-color: #333;
+  height: 50px;
+  color: #fff;
+}
+
+.nav-atas ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-atas ul li {
+  display: inline;
+}
+
+.nav-atas ul li a {
+  display: inline-block;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-atas ul li a:hover {
+  background-color: #555;
+}
+
+/* DELETE */
+.delete {
+  text-align: center;
+  height: auto;
+  background-color: antiquewhite;
+}
+
+.book-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.book-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 15px;
+}
+
+.book-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px 15px 0 0;
+}
+
+.book-card h2 {
+  margin-top: auto; /* Pushes the text below the image */
+  padding-top: 20px; /* Adds some spacing between the image and text */
+  padding-bottom: 20px;
+  color: rgb(22, 168, 253);
+}
+
+.book-card a {
+  color: black;
+}
+
+.book-card button {
+  /* Atur tampilan tombol di dalam elemen book-card di sini */
+  /* Misalnya, gunakan properti berikut untuk mengatur tampilan tombol */
+  background-color: #4cceee; /* Warna latar belakang */
+  color: white; /* Warna teks */
+  padding: 10px 20px; /* Padding (jarak antara isi tombol dengan tepi tombol) */
+  border: none; /* Hilangkan border */
+  border-radius: 10px; /* Radius sudut tombol */
+  font-size: 16px; /* Ukuran teks */
+  cursor: pointer; /* Tampilan kursor saat diarahkan ke tombol */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Jika ingin menambahkan tampilan lainnya seperti hover atau active state,
+   gunakan pseudo-class :hover atau :active. Contohnya: */
+
+.book-card button:hover {
+  background-color: #45a049; /* Warna latar belakang saat dihover */
+}
+
+.book-card button:active {
+  background-color: #3e8e41; /* Warna latar belakang saat ditekan */
+}

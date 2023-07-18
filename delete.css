@@ -1,0 +1,37 @@
+.delete {
+    text-align: center;
+    height: auto;
+    background-color: antiquewhite;
+  }
+  
+  .book-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  
+  .book-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    text-align: center;
+    border: 2px solid black;
+  }
+  
+  .book-card img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+  }
+
+  .delete h1{
+    padding-top: 50px;
+    padding-bottom: 20px;
+  }
+  
+
+
+  

@@ -1,0 +1,185 @@
+/* Keranjang */
+
+.container-isi {
+  background-color: white;
+  margin: auto;
+  width: 1000px;
+  display: flex;
+  margin-bottom: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  position: relative;
+}
+
+.container-isi h3 {
+  text-align: center;
+  color: #333333;
+}
+
+.container-isi p {
+  text-align: center;
+  color: #666666;
+}
+
+.error-message {
+  text-align: center;
+  color: red;
+  font-weight: bold;
+}
+
+.checkbox-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.sub-container-keranjang3 {
+  display: flex;
+  align-items: center;
+}
+
+.container-judul {
+  background-color: white;
+  margin: auto;
+  width: 1000px;
+  display: flex;
+  position: relative;
+  border-bottom: 1px solid rgb(161, 161, 161);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-judul h3 {
+  width: fit-content;
+  font-size: 20px;
+  margin-right: 70%;
+}
+
+.minus-btn,
+.plus-btn {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: #ccc;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.quantity-input {
+  width: 40px;
+  height: 30px;
+  text-align: center;
+  border: 1px solid #ccc;
+  margin: 0 5px;
+}
+
+.sub-container-keranjang {
+  margin: auto;
+  width: 30%;
+}
+
+.sub-container-keranjang img {
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: 20px auto;
+  max-width: 400px;
+}
+
+.minus-btn {
+  margin-right: 10px;
+}
+
+.plus-btn {
+  margin-left: 10px;
+}
+
+.produk {
+  margin-top: 30px;
+  margin-bottom: -20px;
+}
+
+.isi {
+  margin: 15px auto;
+  width: 1000px;
+  height: 100%;
+  background-color: white;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Membagi kolom menjadi lima bagian */
+  align-items: center;
+  justify-content: center;
+}
+
+.isi p {
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.kolom {
+  margin: 15px auto;
+  width: 800px;
+  height: 100%;
+  background-color: white;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Membagi kolom menjadi lima bagian */
+  align-items: center;
+  justify-content: center;
+}
+
+.kolom h3 {
+  font-size: 15px;
+  margin-top: 50px;
+  margin-bottom: -20px;
+  margin-left: 65px;
+  text-align: left;
+  grid-column: span 5; /* Menentukan bahwa h3 akan menggunakan seluruh lima kolom */
+}
+
+.kolom p {
+  margin: 0;
+  text-align: center;
+}
+
+.kolom p:first-child {
+  text-align: left;
+}
+
+.kolom p:last-child {
+  text-align: right;
+}
+
+.footer-keranjang {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #f8f8f8;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.container-footer {
+  margin-left: 50px;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+}
+
+.container-footer:first-child {
+  justify-content: center;
+  align-items: center;
+  margin-left: 0;
+}
+
+/*Keranjang*/
