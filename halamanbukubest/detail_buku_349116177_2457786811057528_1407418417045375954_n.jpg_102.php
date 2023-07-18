@@ -179,7 +179,7 @@
     <!-- Item Detail -->
   <body>
 
-  <form action="../checkoutupload.php" method="POST">
+  <form action="../php/checkoutupload.php" method="POST">
     <div class="container-item-detail">
       <div class="sub-container-1">
             <a href="../Daftarbuku/BestSeller/349116177_2457786811057528_1407418417045375954_n.jpg"><img id="imagePreview"  src="../Daftarbuku/BestSeller/349116177_2457786811057528_1407418417045375954_n.jpg" alt="Gambar" name="gambar"></a>
