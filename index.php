@@ -49,7 +49,7 @@
  <nav class="navbar navbar-expand-lg navbar-dark nv-atas-color">
   <div class="container">
     <a class="navbar-brand" href="#">
-      <img src="promo\WhatsApp Image 2023-06-27 at 19.25.39.jpg" alt="Logo" width="50" height="50" class="d-inline-block align-text-top">
+      <img src="promo\logo.jpg" alt="Logo" width="50" height="50" class="d-inline-block align-text-top">
       Your Brand
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
