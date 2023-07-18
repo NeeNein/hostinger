@@ -179,7 +179,7 @@
                 <div class="position-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Beranda</a>
+                            <a class="nav-link active" href="index.php">Beranda</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#uploadModal">Unggah File</a>
