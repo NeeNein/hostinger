@@ -5,6 +5,7 @@ $pengarang = $_POST['pengarang'];
 $harga = $_POST['harga'];
 $imageUrl = $_POST['imageUrl'];
 
+// Koneksi ke database MySQL
 include 'koneksi.php';
 
 // Periksa apakah judul sudah ada di database
@@ -26,7 +27,7 @@ if ($result->num_rows > 0) {
 }
 
 // Redirect ke halaman lain setelah penghapusan berhasil
-echo "<script>window.location.href = 'keranjang.php';</script>";
+echo "<script>window.location.href = '../php/keranjang.php';</script>";
 
 // Tutup koneksi
 $conn->close();
