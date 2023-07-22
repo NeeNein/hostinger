@@ -206,11 +206,11 @@
             echo "<tbody>";
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>
-                      <td style='width: 20%;'>" . $row["title"] . "</td>
-                      <td style='width: 15%;'>" . $row["author"] . "</td>
-                      <td style='width: 15%;'><img src='" . $row["image"] . "' alt='Gambar Buku' style='max-width: 100px;'></td>
-                      <td style='width: 15%;'>" . $row["kategori"] . "</td>
-                      <td style='width: 25%; white-space: normal; word-break: break-word;'>" . $row["deskripsi"] . "</td>
+                      <td style='width: 10%;'>" . $row["title"] . "</td>
+                      <td style='width: 10%;'>" . $row["author"] . "</td>
+                      <td style='width: 10%;'><img src='" . $row["image"] . "' alt='Gambar Buku' style='max-width: 100px;'></td>
+                      <td style='width: 10%;'>" . $row["kategori"] . "</td>
+                      <td style='width: 50%; white-space: normal; word-break: break-word;'>" . $row["deskripsi"] . "</td>
                       <td style='width: 10%;'>
                           <button type='button' class='btn btn-primary' onclick='showEditModal(\"{$row["id"]}\", \"{$row["title"]}\", \"{$row["author"]}\", \"{$row["image"]}\", \"{$row["kategori"]}\", \"{$row["deskripsi"]}\", \"$sectionType\")'>Edit</button>
                           <form action='" . ($sectionType === "best_seller" ? "delete_book_best_seller.php" : "delete_book_promo.php") . "' method='post' style='display: inline;'>
