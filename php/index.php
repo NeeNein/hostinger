@@ -286,7 +286,7 @@
         <div class="img">
             <a class="link" href="../halamanbukupromo/detail_buku_<?php echo basename($bookpromo['image']. '_' .$bookpromo['id']); ?>.php"><img src="../<?php echo $bookpromo['image']; ?>" alt="Book Image"></a>
         </div>
-        <h2><?php echo $bookpromo['title']; ?></h2>
+        <h2 style="text-align: center;"><?php echo $bookpromo['title']; ?></h2>
         <p><?php echo $bookpromo['author']; ?></p>
         <span>Rp. <?php echo number_format($bookpromo['price'], 0, ',', '.'); ?></span>
     </li>
