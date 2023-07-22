@@ -442,10 +442,15 @@ body {
   height: 190px;
   object-fit: cover;
 }
-.carouselcard .card2 h2 {
+
+.container2 .carouselcard .card2 h2 {
   font-weight: 500;
   font-size: 15px;
   margin: 30px 0 5px;
+  font-size: 15px;
+  margin: 30px 0 5px;
+  text-align: center;
+  margin: auto;
 }
 
 .carouselcard .card2 p {

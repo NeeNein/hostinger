@@ -62,6 +62,7 @@
       /* Custom CSS for the Unggah File modal */
         .modal-content {
             font-family: Arial, sans-serif;
+            max-width: 500px;
         }
 
         .modal-title {
@@ -179,7 +180,7 @@
                 <div class="position-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="index.php">Beranda</a>
+                            <a class="nav-link active" href="#">Beranda</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#uploadModal">Unggah File</a>
@@ -205,12 +206,12 @@
             echo "<tbody>";
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>
-                      <td>" . $row["title"] . "</td>
-                      <td>" . $row["author"] . "</td>
-                      <td><img src='" . $row["image"] . "' alt='Gambar Buku' style='max-width: 100px;'></td>
-                      <td>" . $row["kategori"] . "</td>
-                      <td>" . $row["deskripsi"] . "</td>
-                      <td>
+                      <td style='width: 20%;'>" . $row["title"] . "</td>
+                      <td style='width: 15%;'>" . $row["author"] . "</td>
+                      <td style='width: 15%;'><img src='" . $row["image"] . "' alt='Gambar Buku' style='max-width: 100px;'></td>
+                      <td style='width: 15%;'>" . $row["kategori"] . "</td>
+                      <td style='width: 25%; white-space: normal; word-break: break-word;'>" . $row["deskripsi"] . "</td>
+                      <td style='width: 10%;'>
                           <button type='button' class='btn btn-primary' onclick='showEditModal(\"{$row["id"]}\", \"{$row["title"]}\", \"{$row["author"]}\", \"{$row["image"]}\", \"{$row["kategori"]}\", \"{$row["deskripsi"]}\", \"$sectionType\")'>Edit</button>
                           <form action='" . ($sectionType === "best_seller" ? "delete_book_best_seller.php" : "delete_book_promo.php") . "' method='post' style='display: inline;'>
                               <input type='hidden' name='id' value='" . $row["id"] . "'>
@@ -225,6 +226,7 @@
             echo $sectionType === "best_seller" ? "Belum ada buku yang diunggah." : "Belum ada buku promo yang diunggah.";
         }
     }
+    
 
     // Fetch books data
     $sql_books = "SELECT * FROM books ORDER BY id";

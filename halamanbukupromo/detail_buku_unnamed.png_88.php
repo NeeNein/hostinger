@@ -1,23 +1,4 @@
-<?php
-
-// Fetch the book data from the database
-include 'koneksi.php';
-
-// Create a new PDO instance
-$pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-
-// Prepare the SQL statement
-$stmt = $pdo->prepare("SELECT * FROM buku_promo");
-
-// Execute the prepared statement
-$stmt->execute();
-
-// Fetch all rows from the result set
-$bukupromo = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-foreach ($bukupromo as $bookpromo) {
-    // Generate the HTML content dynamically
-    $fileContent = '<!DOCTYPE html>
+<!DOCTYPE html>
     <html>
     <head>
       <meta charset="UTF-8">
@@ -43,7 +24,7 @@ foreach ($bukupromo as $bookpromo) {
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
       <link rel="stylesheet" href="./checkout.css"/>
-      <title>' . $bookpromo['judul'] . '</title>
+      <title>Gintama</title>
      
     </head>
     <head>
@@ -201,10 +182,10 @@ foreach ($bukupromo as $bookpromo) {
   <form action="../checkoutupload.php" method="POST">
     <div class="container-item-detail">
       <div class="sub-container-1">
-            <a href="' . $bookpromo['image'] . '"><img id="imagePreview"  src="' . $bookpromo['image'] . '" alt="Gambar" name="gambar"></a>
+            <a href="../Daftarbuku/Promo/unnamed.png"><img id="imagePreview"  src="../Daftarbuku/Promo/unnamed.png" alt="Gambar" name="gambar"></a>
       </div>
       <div class="sub-container-2">
-          <h1 id="judulPreview" name = "judul">' . $bookpromo['judul'] . '</h1>
+          <h1 id="judulPreview" name = "judul">Gintama</h1>
           <hr>
           <div class="rating">
             <span>&#9733;</span>
@@ -213,8 +194,8 @@ foreach ($bukupromo as $bookpromo) {
             <span>&#9733;</span>
             <span>&#9733;</span>
           </div>
-          <p id="pengarang" name="pengarang">' . $bookpromo['author'] . '</p>
-          <p id="harga" name="harga">' . $bookpromo['price'] . '</p>
+          <p id="pengarang" name="pengarang">Hajime</p>
+          <p id="harga" name="harga">500000</p>
           <p name="note">no hidden cost</p>
       </div>
       <div class="sub-container">
@@ -255,196 +236,7 @@ foreach ($bukupromo as $bookpromo) {
   </div>
   <!-- Akhir Modal -->
 
-  <script>
-        // Ambil elemen dengan id "harga"
-        const hargaElement = document.getElementById("harga");
-
-        // Ambil nilai harga dari teks di dalam elemen
-        let harga = hargaElement.innerHTML;
-
-        // Tambahkan Rp. di depan nilai harga
-        harga = "Rp. " + harga;
-
-        // Format angka dengan titik setiap 3 digit
-        harga = formatNumberWithCommas(harga);
-
-        // Masukkan kembali hasil format ke dalam elemen
-        hargaElement.innerHTML = harga;
-
-        // Fungsi untuk menambahkan tanda titik setiap 3 digit angka
-        function formatNumberWithCommas(number) {
-            return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-        }
-    </script>
-
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" 
   integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
   </body>
-  </html>';
-
-    // Generate the file name based on the image file name
-    $imageFileName = basename($bookpromo['image']);
-    $id = $bookpromo['id'];
-    $folderPath = '../halamanbukupromo/';
-    $fileName = $folderPath . 'detail_buku_' . $imageFileName . '_' . $id . '.php';
-
-    // Check if the file already exists
-    if (!file_exists($fileName)) {
-        // Save the generated HTML content to a file
-        $file = fopen($fileName, 'w');
-        fwrite($file, $fileContent);
-        fclose($file);
-    }
-}
-
-// Redirect ke halaman lain setelah penghapusan berhasil
-echo "<script>window.location.href = 'admin.php';</script>";
-?>
-
-<?php
-// Fetch the book data from the database
-include 'koneksi.php';
-
-// Create a new PDO instance
-$pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-
-// Prepare the SQL statement
-$stmt = $pdo->prepare("SELECT * FROM books");
-
-// Execute the prepared statement
-$stmt->execute();
-
-// Fetch all rows from the result set
-$bukubest = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-foreach ($bukubest as $bookbest) {
-    // Generate the HTML content dynamically
-    $fileContent = <<<HTML
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-    <!-- MDB -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="./style.css" />
-    <!-- Carousel -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <link rel="stylesheet" href="./checkout.css" />
-    <title>{$bookbest['judul']}</title>
-
-    <style>
-        .card2 {
-            list-style: none;
-            width: 200px;
-            padding: 10px;
-            margin: 10px;
-            border: 1px solid #ccc;
-            float: left;
-            text-align: center;
-        }
-        .img img {
-            width: 150px;
-            height: 200px;
-            object-fit: cover;
-        }
-    </style>
-</head>
-<body>
-    <!-- Navbar Atas -->
-    <nav class="navbar navbar-expand-lg navbar-dark nv-atas-color">
-        <!-- Your Navbar code goes here -->
-    </nav>
-    <!-- Navbar -->
-
-    <!-- Item Detail -->
-    <form action="../checkoutupload.php" method="POST">
-        <div class="container-item-detail">
-            <div class="sub-container-1">
-                <a href="{$bookbest['image']}"><img id="imagePreview" src="{$bookbest['image']}" alt="Gambar" name="gambar"></a>
-            </div>
-            <div class="sub-container-2">
-                <h1 id="judulPreview" name="judul">{$bookbest['title']}</h1>
-                <hr>
-                <div class="rating">
-                    <span>&#9733;</span>
-                    <span>&#9733;</span>
-                    <span>&#9733;</span>
-                    <span>&#9733;</span>
-                    <span>&#9733;</span>
-                </div>
-                <p id="pengarang" name="pengarang">{$bookbest['author']}</p>
-                <p id="harga" name="harga">{$bookbest['price']}</p>
-                <p name="note">no hidden cost</p>
-            </div>
-            <div class="sub-container">
-                <!-- Kode lainnya ... -->
-                <input type="hidden" name="imageUrl" value="{$bookbest['image']}" id="imageUrlInput">
-                <input type="hidden" name="judul" value="{$bookbest['title']}" id="judulInput">
-                <input type="hidden" name="pengarang" value="{$bookbest['author']}" id="pengarangInput">
-                <input type="hidden" name="harga" value="{$bookbest['price']}" id="hargaInput">
-                <button type="submit" value="Upload" class="btn btn-checkout" style="width: 100%;">
-                    Tambah Ke Keranjang
-                </button>
-
-                <script>
-                    const judulInput = document.getElementById("judulPreview").textContent;
-                    document.getElementById("judulInput").value = judulInput;
-
-                    const pengarangInput = document.getElementById("pengarang").textContent;
-                    document.getElementById("pengarangInput").value = pengarangInput;
-
-                    const hargaInput = document.getElementById("harga").textContent;
-                    document.getElementById("hargaInput").value = hargaInput;
-
-                    const imageUrl = document.getElementById("imagePreview").src;
-                    document.getElementById("imageUrlInput").value = imageUrl;
-                </script>
-            </div>
-        </div>
-    </form>
-
-    <div class="container-deksripsi">
-        <h3>Deskripsi :</h3>
-        <hr>
-        <p style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-all; max-width: 990px; display: inline-block;">{$bookbest['deskripsi']}</p>
-        <!-- Akhir Modal -->
-    </div>
-
-    <script>
-        // Your existing scripts go here
-    </script>
-
-    <!-- Your existing scripts go here -->
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" 
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-</body>
-</html>
-HTML;
-
-    // Generate the file name based on the image file name
-    $imageFileName = basename($bookbest['image']);
-    $id = $bookbest['id'];
-    $folderPath = '../halamanbukubest/';
-    $fileName = $folderPath . $id . '.php';
-
-    // Check if the file already exists
-    if (!file_exists($fileName)) {
-        // Save the generated HTML content to a file
-        $file = fopen($fileName, 'w');
-        fwrite($file, $fileContent);
-        fclose($file);
-    }
-}
-
-// Redirect ke halaman lain setelah penghapusan berhasil
-echo "<script>window.location.href = 'admin.php';</script>";
-?>
-
+  </html>

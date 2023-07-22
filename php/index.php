@@ -85,7 +85,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
           <div class="modal-body">
-              <form action="fiturlogin.php" method="POST">
+              <form action="./php/fiturlogin.php" method="POST">
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
                     <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -95,7 +95,7 @@
                     <input type="password" name="password" class="form-control" id="exampleInputPassword1">
                   </div>
                   <div class="text-center">
-                      <a>Belum punya akun? </a><a href="./daftar.php" class="text-primary fs-8">Daftar</a>
+                      <a>Belum punya akun? </a><a href="./daftar.html" class="text-primary fs-8">Daftar</a>
                   </div>
                 
           </div>
@@ -161,7 +161,7 @@
                 <input type="password" class="form-control" id="exampleInputPassword1">
               </div>
               <div class="text-center">
-                  <a>Belum punya akun? </a><a href="./daftar.php" class="text-primary fs-8">Daftar</a>
+                  <a>Belum punya akun? </a><a href="./daftar.html" class="text-primary fs-8">Daftar</a>
               </div>
             </form>
       </div>
@@ -284,7 +284,7 @@
       <?php foreach ($bukupromo as $bookpromo): ?>
     <li class="card2">
         <div class="img">
-            <a class="link" href="../halamanbukupromo/detail_buku_<?php echo basename($bookpromo['image']. '_' .$bookpromo['id']); ?>.php"><img src="../<?php echo $bookpromo['image']; ?>" alt="Book Image"></a>
+            <a class="link" href="promo.php?id=<?php echo $bookpromo['id']?>"><img src="../<?php echo $bookpromo['image']; ?>" alt="Book Image"></a>
         </div>
         <h2 style="text-align: center;"><?php echo $bookpromo['title']; ?></h2>
         <p><?php echo $bookpromo['author']; ?></p>
@@ -337,7 +337,8 @@
                               <?php foreach ($bukubest as $bookbest): ?>
                                 <li class="card2">
                                   <div class="img">
-                                    <a class="link" href="../halamanbukubest/detail_buku_<?php echo basename($bookbest['image']. '_' .$bookbest['id']); ?>.php"><img src="../<?php echo $bookbest['image']; ?>" alt="Book Image"></a>
+                                  <a class="link" href="bestseller.php?id=<?php echo $bookbest['id']?>"><img src="../<?php echo $bookbest['image']; ?>" alt="Book Image"></a>
+
                                   </div>
                                 <h2><?php echo $bookbest['title']; ?></h2>
                                 <p><?php echo $bookbest['author']; ?></p>

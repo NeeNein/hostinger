@@ -66,7 +66,7 @@
         </div>
       </form>
       <div class="d-flex align-items-center">
-        <a href="keranjang.php" class="text-decoration-none text-light">
+        <a href="./php/keranjang.php" class="text-decoration-none text-light">
           <i class="fas fa-shopping-cart me-2"></i>
         </a>
         <button type="button" class="btn btn-login-color" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -278,8 +278,7 @@
         <?php foreach ($bukupromo as $bookpromo): ?>
         <li class="card2">
           <div class="img">
-            <a class="link" href="./halamanbukupromo/detail_buku_<?php echo basename($bookpromo['image'] . '_' .
-              $bookpromo['id']); ?>.php"><img src="../<?php echo $bookpromo['image']; ?>" alt="Book Image"></a>
+            <a class="link" href="./php/promo.php?id=<?php echo $bookpromo['id']?>"><img src="../<?php echo $bookpromo['image']; ?>" alt="Book Image"></a>
           </div>
           <h2 style="text-align: center;"><?php echo $bookpromo['title']; ?></h2>
           <p><?php echo $bookpromo['author']; ?></p>
@@ -328,7 +327,7 @@
                               <?php foreach ($bukubest as $bookbest): ?>
                                 <li class="card2">
                                   <div class="img">
-                                    <a class="link" href="./halamanbukubest/detail_buku_<?php echo basename($bookbest['image']. '_' .$bookbest['id']); ?>.php"><img src="../<?php echo $bookbest['image']; ?>" alt="Book Image"></a>
+                                    <a class="link" href="./php/bestseller.php?id=<?php echo $bookbest['id']?>"><img src="../<?php echo $bookbest['image']; ?>" alt="Book Image"></a>
                                   </div>
                                 <h2><?php echo $bookbest['title']; ?></h2>
                                 <p><?php echo $bookbest['author']; ?></p>
