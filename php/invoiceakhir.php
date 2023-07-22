@@ -140,7 +140,8 @@ if ($result->num_rows > 0) {
                     <p><strong>Phone</strong> : <?php echo $row['phone']; ?></p>
                     <p><strong>Metode Pengiriman</strong> : <?php echo $row['metode_pengiriman']; ?></p>
                     <p><strong>Metode Pembayaran</strong> : <?php echo $row['metode_pembayaran']; ?></p>
-                    <p><strong>Total Harga</strong> : <?php echo $row['total_harga']; ?></p>
+                    <p><strong>Harga Ongkir</strong> : <?php echo $row['harga_pengiriman']; ?></p>
+                    <p><strong>Total Harga</strong> : Rp. <?php echo $row['total_harga']; ?></p>
                 </div>
             <?php } ?>
         </div>

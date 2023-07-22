@@ -142,30 +142,47 @@ if (isset($_GET['total'])) {
   </div>
 
   <div class="alamat-invoice">
-    <div class="shipping-container">
-      <div class="shipping-options">
-        <div class="select-wrapper">
-          <div class="selected-option">Metode Pengiriman <i class="fa-solid fa-chevron-down"></i></div>
-          <div class="options">
-            <div class="option" disabled selected hidden>Metode Pengiriman</div>
-            <div class="option" onclick="updateShippingMethod(this)">
-              <p>JNE <br> Pengiriman 2 - 4 Hari</p>
-              <p class="price">25000</p>
-            </div>
-            <hr>
-            <div class="option" onclick="updateShippingMethod(this)">
-              <p>Si Cepat <br> Pengiriman 2 - 4 Hari</p>
-              <p class="price">22000</p>
-            </div>
-            <hr>
-            <div class="option" onclick="updateShippingMethod(this)">
-              <p>J&T <br> Pengiriman 2 - 4 Hari</p>
-              <p class="price">19000</p>
-            </div>
-          </div>
-        </div>
+        <div class="shipping-container">
+        <div class="select-box" onclick="toggleOptions()">
+  <div class="selected-option" id="selected-option-display">Pilih opsi</div>
+  
+  <div class="options">
+    <div class="option" onclick="selectOption(this)">
+      <div class="option-column">
+        <p>JNE <br>  4-5 Hari Pengiriman</p>
+      </div>
+      <div class="option-column">
+        <span>Rp. 25.000</span>
       </div>
     </div>
+    <div class="option" onclick="selectOption(this)">
+      <div class="option-column">
+        <p>Option 2</p>
+      </div>
+      <div class="option-column">
+        <span>Sub-option 2</span>
+      </div>
+    </div>
+    <div class="option" onclick="selectOption(this)">
+      <div class="option-column">
+        <p>Option 3</p>
+      </div>
+      <div class="option-column">
+        <span>Sub-option 3</span>
+      </div>
+    </div>
+    <div class="option" onclick="selectOption(this)">
+      <div class="option-column">
+        <p>Option 4</p>
+      </div>
+      <div class="option-column">
+        <span>Sub-option 4</span>
+      </div>
+    </div>
+    <!-- Tambahkan lebih banyak opsi jika diperlukan -->
+  </div>
+</div>
+  </div>
 
     <div class="label-container">
       <label for="nama">Nama:</label>
@@ -277,7 +294,9 @@ if (isset($_GET['total'])) {
           </div>
             <form action="fiturinvoice.php" method="post">
               <div class="rincian-button">
-                  <input type="hidden" id="selectedShippingMethod" name="metode_pengiriman">
+                
+                   <input type="hidden" id="selected-option" name="metode_pengiriman">
+                   <input type="hidden" id="selected-sub-option" name="harga_pengiriman">
                   <input type="hidden" id="selectedPaymentMethod" name="metode_pembayaran">
                   <input type="hidden" id="namaInput" name="nama">
                   <input type="hidden" id="alamatInput" name="alamat">
@@ -310,11 +329,36 @@ if (isset($_GET['total'])) {
  
 <!-- metode pengiriman -->
 <script>
-  function updateShippingMethod(option) {
-    var selectedText = option.textContent;
-    var selectedShippingMethodInput = document.getElementById("selectedShippingMethod");
-    selectedShippingMethodInput.value = selectedText;
+  function toggleOptions() {
+    const optionsDiv = document.querySelector('.options');
+    optionsDiv.style.display = optionsDiv.style.display === 'none' ? 'block' : 'none';
   }
+
+  function selectOption(option) {
+    const selectedOptionInput = document.getElementById('selected-option');
+    const selectedSubOptionInput = document.getElementById('selected-sub-option');
+
+    const optionText = option.querySelector('p').textContent.trim();
+    const subOptionText = option.querySelector('span').textContent.trim();
+
+    selectedOptionInput.value = optionText;
+    selectedSubOptionInput.value = subOptionText;
+
+    const selectedOptionDisplay = document.getElementById('selected-option-display');
+    selectedOptionDisplay.innerHTML = option.innerHTML; // Display selected option with p and span elements
+
+    toggleOptions(); // Menutup daftar opsi setelah opsi dipilih
+  }
+
+  // Menutup opsi ketika klik di luar elemen select box
+  document.addEventListener('click', function(event) {
+    const selectBox = document.querySelector('.select-box');
+    const optionsDiv = document.querySelector('.options');
+
+    if (!selectBox.contains(event.target)) {
+      optionsDiv.style.display = 'none';
+    }
+  });
 </script>
 
   <!-- RADIO -->
