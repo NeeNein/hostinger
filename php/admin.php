@@ -189,84 +189,137 @@
             </nav>
 
           <!-- Konten Utama -->
-<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
     <!-- Isi konten utama di sini -->
     <h1>Selamat datang di halaman admin</h1>
     <hr>
-    
 
-    <h2>Daftar Buku Best Seller</h2>
     <?php
     include 'koneksi.php';
+
+    function displayBooks($result, $sectionType)
+    {
+        if ($result->num_rows > 0) {
+            echo "<table class='table'>";
+            echo "<thead><tr><th>Judul Buku</th><th>Penulis</th><th>Gambar</th><th>Kategori</th><th>Deskripsi</th><th>Aksi</th></tr></thead>";
+            echo "<tbody>";
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>
+                      <td>" . $row["title"] . "</td>
+                      <td>" . $row["author"] . "</td>
+                      <td><img src='" . $row["image"] . "' alt='Gambar Buku' style='max-width: 100px;'></td>
+                      <td>" . $row["kategori"] . "</td>
+                      <td>" . $row["deskripsi"] . "</td>
+                      <td>
+                          <button type='button' class='btn btn-primary' onclick='showEditModal(\"{$row["id"]}\", \"{$row["title"]}\", \"{$row["author"]}\", \"{$row["image"]}\", \"{$row["kategori"]}\", \"{$row["deskripsi"]}\", \"$sectionType\")'>Edit</button>
+                          <form action='" . ($sectionType === "best_seller" ? "delete_book_best_seller.php" : "delete_book_promo.php") . "' method='post' style='display: inline;'>
+                              <input type='hidden' name='id' value='" . $row["id"] . "'>
+                              <button type='submit' class='btn btn-danger' onclick='return confirm(\"Apakah Anda yakin ingin menghapus buku ini?\")'>Hapus</button>
+                          </form>
+                      </td>
+                  </tr>";
+            }
+            echo "</tbody>";
+            echo "</table>";
+        } else {
+            echo $sectionType === "best_seller" ? "Belum ada buku yang diunggah." : "Belum ada buku promo yang diunggah.";
+        }
+    }
 
     // Fetch books data
     $sql_books = "SELECT * FROM books ORDER BY id";
     $result_books = $koneksi->query($sql_books);
 
-    if ($result_books->num_rows > 0) {
-        echo "<table class='table'>";
-        echo "<thead><tr><th>Judul Buku</th><th>Penulis</th><th>Gambar</th><th>Kategori</th><th>Deskripsi</th><th>Aksi</th></tr></thead>";
-        echo "<tbody>";
-        while ($row_books = $result_books->fetch_assoc()) {
-            echo "<tr>
-                      <td>" . $row_books["title"] . "</td>
-                      <td>" . $row_books["author"] . "</td>
-                      <td><img src='" . $row_books["image"] . "' alt='Gambar Buku' style='max-width: 100px;'></td>
-                      <td>" . $row_books["kategori"] . "</td>
-                      <td>" . $row_books["deskripsi"] . "</td>
-                      <td>
-                          <form action='delete_book_best_seller.php' method='post' style='display: inline;'>
-                              <input type='hidden' name='id' value='" . $row_books["id"] . "'>
-                              <button type='submit' class='btn btn-danger' onclick='return confirm(\"Apakah Anda yakin ingin menghapus buku ini?\")'>Hapus</button>
-                          </form>
-                      </td>
-                  </tr>";
-        }
-        echo "</tbody>";
-        echo "</table>";
-    } else {
-        echo "Belum ada buku yang diunggah.";
-    }
+    echo "<h2>Daftar Buku Best Seller</h2>";
+    displayBooks($result_books, "best_seller");
+
+    // Fetch buku_promo data
+    $sql_buku_promo = "SELECT * FROM buku_promo ORDER BY id";
+    $result_buku_promo = $koneksi->query($sql_buku_promo);
+
+    echo "<h2>Daftar Buku Promo</h2>";
+    displayBooks($result_buku_promo, "buku_promo");
 
     $koneksi->close();
     ?>
 
-    <h2>Daftar Buku Promo</h2>
-    <?php
-    include 'koneksi.php';
+   <!-- Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Edit Book Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Add the HTML form for editing the book details -->
+                <form id="editForm" action="update_best_seller.php" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="id" id="editId">
+                    <div class="row mb-3">
+                        <label for="editTitle" class="col-sm-4 col-form-label">Judul Buku:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="title" id="editTitle">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="editAuthor" class="col-sm-4 col-form-label">Penulis:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="author" id="editAuthor">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-4 col-form-label">Gambar:</label>
+                        <div class="col-sm-8">
+                            <img src="" id="editImagePreview" alt="Gambar Buku" style="max-width: 100px;"><br>
+                            <input type="file" name="new_image" id="editImage">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="editKategori" class="col-sm-4 col-form-label">Kategori:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="kategori" id="editKategori">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="editDeskripsi" class="col-sm-4 col-form-label">Deskripsi:</label>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" name="deskripsi" id="editDeskripsi"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
-    // Fetch book_promo data
-    $sql_book_promo = "SELECT * FROM buku_promo ORDER BY id";
-    $result_book_promo = $koneksi->query($sql_book_promo);
-
-    if ($result_book_promo->num_rows > 0) {
-        echo "<table class='table'>";
-        echo "<thead><tr><th>Judul Buku Promo</th><th>Penulis</th><th>Gambar</th><th>Kategori</th><th>Deskripsi</th><th>Aksi</th></tr></thead>";
-        echo "<tbody>";
-        while ($row_book_promo = $result_book_promo->fetch_assoc()) {
-            echo "<tr>
-                      <td>" . $row_book_promo["title"] . "</td>
-                      <td>" . $row_book_promo["author"] . "</td>
-                      <td><img src='" . $row_book_promo["image"] . "' alt='Gambar Buku Promo' style='max-width: 100px;'></td>
-                      <td>" . $row_book_promo["kategori"] . "</td>
-                      <td>" . $row_book_promo["deskripsi"] . "</td>
-                      <td>
-                          <form action='delete_book_promo.php' method='post' style='display: inline;'>
-                              <input type='hidden' name='id' value='" . $row_book_promo["id"] . "'>
-                              <button type='submit' class='btn btn-danger' onclick='return confirm(\"Apakah Anda yakin ingin menghapus buku promo ini?\")'>Hapus</button>
-                          </form>
-                      </td>
-                  </tr>";
-        }
-        echo "</tbody>";
-        echo "</table>";
-    } else {
-        echo "Belum ada buku promo yang diunggah.";
-    }
-
-    $koneksi->close();
-    ?>
 </main>
+
+<script>
+    function showEditModal(id, title, author, image, kategori, deskripsi, sectionType) {
+        // Populate form fields with the book details
+        document.getElementById('editId').value = id;
+        document.getElementById('editTitle').value = title;
+        document.getElementById('editAuthor').value = author;
+        document.getElementById('editImagePreview').src = image;
+        document.getElementById('editKategori').value = kategori;
+        document.getElementById('editDeskripsi').value = deskripsi;
+
+        // Determine the appropriate action based on sectionType
+        const formAction = sectionType === 'best_seller' ? 'update_book_best_seller.php' : 'update_buku_promo.php';
+        document.getElementById('editForm').action = formAction;
+
+        // Set the modal title based on sectionType
+        const modalTitle = sectionType === 'best_seller' ? 'Edit Book Details - Best Seller' : 'Edit Book Details - Buku Promo';
+        document.getElementById('editModalLabel').innerText = modalTitle;
+
+        // Show the modal
+        const myModal = new bootstrap.Modal(document.getElementById('editModal'));
+        myModal.show();
+    }
+</script>
+
+
 
 
 
