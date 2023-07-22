@@ -1,6 +1,7 @@
 <?php
 // Mengambil nilai dari $_POST
 $metode_pengiriman = $_POST['metode_pengiriman'];
+$harga_pengiriman = $_POST['harga_pengiriman'];
 $metode_pembayaran = $_POST['metode_pembayaran'];
 $nama = $_POST['nama'];
 $alamat = $_POST['alamat'];
@@ -25,7 +26,7 @@ if ($koneksi->connect_error) {
 }
 
 // Menyiapkan kueri INSERT
-$sql = "INSERT INTO invoice (nama, alamat, phone, metode_pengiriman, metode_pembayaran, total_harga) VALUES ('$nama', '$alamat', '$phone', '$metode_pengiriman', '$metode_pembayaran', '$totalharga')";
+$sql = "INSERT INTO invoice (nama, alamat, phone, metode_pengiriman, metode_pembayaran,harga_pengiriman, total_harga) VALUES ('$nama', '$alamat', '$phone', '$metode_pengiriman', '$metode_pembayaran','$harga_pengiriman', '$totalharga')";
 
 // Menjalankan kueri INSERT
 if ($koneksi->query($sql) === TRUE) {
