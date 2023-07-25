@@ -188,7 +188,7 @@ if (isset($_POST['search_submit'])) {
     // Query ke database untuk mencari data dari dua tabel
     $query = "SELECT id, title, author, price, image FROM books WHERE title LIKE '%$searchQuery%' OR author LIKE '%$searchQuery%'
                 UNION
-                SELECT id, judul, author, price, image FROM buku_promo WHERE judul LIKE '%$searchQuery%' OR author LIKE '%$searchQuery%'";
+                SELECT id, title, author, price, image FROM buku_promo WHERE title LIKE '%$searchQuery%' OR author LIKE '%$searchQuery%'";
     $result = mysqli_query($koneksi, $query);
 
     // Tampilkan hasil pencarian
