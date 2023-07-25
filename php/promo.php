@@ -58,12 +58,12 @@ if (isset($_GET['id'])) {
       <ul class="navbar-nav mx-auto">
         <!-- Hapus menu Home, About, dan Services -->
       </ul>
-      <form class="d-flex navbar-form">
-        <div class="input-group">
-          <input class="form-control form-control-lg" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-light" type="submit">Search</button>
-        </div>
-      </form>
+      <form class="d-flex navbar-form" action="./search.php" method="POST">
+               <div class="input-group">
+                  <input class="form-control form-control-lg" type="search" name="search_query" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-light" type="submit" name="search_submit">Search</button>
+               </div>
+          </form>
       <!-- Float Login -->
     <!-- Button trigger modal -->
     <!-- Buton Daftar 
