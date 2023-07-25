@@ -1,0 +1,19 @@
+{
+  "name": "bukukita",
+  "version": "1.0.0",
+  "description": "Deskripsi proyek Anda",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "echo \"Build command placeholder\""
+  },
+  "keywords": [],
+  "author": "Nama Anda",
+  "license": "MIT",
+  "dependencies": {
+ 
+  },
+  "devDependencies": {
+   
+  }
+}
