@@ -1,112 +1,135 @@
+<?php
+session_start();
+
+// Fungsi untuk memeriksa apakah pengguna sudah login
+function isUserLoggedIn() {
+  return isset($_SESSION['user_id']);
+}
+
+// Fungsi untuk memeriksa apakah pengguna sudah login, jika belum akan diarahkan ke halaman login
+function requireLogin() {
+  if (!isUserLoggedIn()) {
+      header("Location: ./php/login.php"); // Ganti './php/login.php' dengan halaman login Anda
+      exit();
+  }
+}
+
+?>
+
 <!DOCTYPE html>
-<!-- Website - www.codingnepalweb.com --><html lang="en" dir="ltr">
-  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <style></style>
-    <meta charset="utf-8">
-    
+<!-- Website - www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <style></style>
+  <meta charset="utf-8">
 
-       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
-      <!-- Google Fonts -->
-      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap" rel="stylesheet">
 
-      <!-- MDB -->
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css" rel="stylesheet">
-    
-      <!-- Carousel -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-      <title>BukuKita | Jual dan Beli Buku</title>
+  <!-- MDB -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css" rel="stylesheet">
 
-      <!-- CSS -->
-      <link rel="stylesheet" href="../css/style.css">
+  <!-- Carousel -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <title>Infinite card2 Slider JavaScript | CodingNepal</title>
 
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/style.css">
 
-       <!-- Fontawesome Link for Icons -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      <!--Java Script-->
-      <script src="../js/script.js" defer></script>
-      
-      <script src="../js/script3.js" defer></script>
-      <!-- Tawks.To -->
-        <script type="text/javascript">
-        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-        (function(){
-        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-        s1.async=true;
-        s1.src='https://embed.tawk.to/64834eadcc26a871b0219789/1h2gemlu7';
-        s1.charset='UTF-8';
-        s1.setAttribute('crossorigin','*');
-        s0.parentNode.insertBefore(s1,s0);
-        })();
-      </script>
-  </head>
-  <body>
+  <!-- Fontawesome Link for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 
- <!-- Navbar Atas -->
- <nav class="navbar navbar-expand-lg navbar-dark nv-atas-color">
-  <div class="container">
-    <a class="navbar-brand" href="#">
-      <img src="promo\logo.jpg" alt="Logo" width="50" height="50" class="d-inline-block align-text-top">
-      BukuKita
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav mx-auto">
-        <!-- Hapus menu Home, About, dan Services -->
-      </ul>
-      <form class="d-flex navbar-form" action="./php/search.php" method="POST">
-        <div class="input-group">
-          <input class="form-control form-control-lg" type="search" name="search_query" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-light" type="submit" name="search_submit">Search</button>
+  <!--Java Script-->
+  <script src="../js/script.js" defer></script>
+  <script src="../js/script3.js" defer></script>
+
+  <!-- Tawks.To -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/64834eadcc26a871b0219789/1h2gemlu7';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark nv-atas-color">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="promo\logo.jpg" alt="Logo" width="50" height="50" class="d-inline-block align-text-top">
+        Your Brand
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <!-- Hapus menu Home, About, dan Services -->
+        </ul>
+        <form class="d-flex navbar-form mx-auto" action="./php/search.php" method="POST">
+          <div class="input-group">
+            <input class="form-control form-control-lg" type="search" name="search_query" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-light" type="submit" name="search_submit">Search</button>
+          </div>
+        </form>
+        <div class="d-flex align-items-center">
+          <?php if (isUserLoggedIn()): ?>
+            <a href="./php/keranjang.php" class="text-decoration-none text-light">
+              <i class="fas fa-shopping-cart me-3" style="padding-left: 200px;"></i>
+            </a>
+            <a href="#" class="text-decoration-none text-light">Profile</a>
+            <a href="logout.php" class="text-decoration-none text-light ms-3">Logout</a>
+          <?php else: ?>
+            <button type="button" class="btn btn-login-color" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Login
+            </button>
+          <?php endif; ?>
         </div>
-      </form>
-      <div class="d-flex align-items-center">
-        <a href="./php/login.php" class="text-decoration-none text-light">
-          <i class="fas fa-shopping-cart me-2"></i>
-        </a>
-        <button type="button" class="btn btn-login-color" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Login
-        </button>
       </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5 text-center mx-auto p-2 fs-2" style="width: 800px;" id="exampleModalLabel">Login</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form action="./php/fiturlogin.php" method="POST">
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" name="password" class="form-control" id="exampleInputPassword1">
-          </div>
-          <div class="text-center">
-            <a>Belum punya akun? </a><a href="../php/daftar.php" class="text-primary fs-8">Daftar</a>
-          </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 text-center mx-auto p-2 fs-2" style="width: 800px;" id="exampleModalLabel">Login</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-footer text-center mx-auto">
-          <button type="submit" class="btn btn-primary">Login</button>
-        </div>
+        <div class="modal-body">
+          <form action="fiturlogin.php" method="POST">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="text-center">
+              <a>Belum punya akun? </a><a href="../php/daftar.php" class="text-primary fs-8">Daftar</a>
+            </div>
+          </div>
+          <div class="modal-footer text-center mx-auto">
+            <button type="submit" class="btn btn-primary">Login</button>
+          </div>
         </form>
       </div>
     </div>
   </div>
-</div>
 
 
 <!---------------- AKHIR NAVBAR ATAS ------------------>
@@ -250,6 +273,10 @@
   </div>
     
 
+
+  
+
+  
     <!--------------------- Buku Promo --------------------->
 
 <div class="container2">
@@ -277,9 +304,16 @@
 
         <?php foreach ($bukupromo as $bookpromo): ?>
         <li class="card2">
-          <div class="img">
-            <a class="link" href="./php/login.php"><img src="../<?php echo $bookpromo['image']; ?>" alt="Book Image"></a>
-          </div>
+        <?php if (isUserLoggedIn()): ?>
+            <div class="img">
+              <a class="link" href="./php/promo.php?id=<?php echo $bookpromo['id']?>"><img src="../<?php echo $bookpromo['image']; ?>" alt="Book Image"></a>
+            </div>
+          <?php else: ?>
+            <!-- Jika pengguna belum login, link akan mengarahkan ke login.php -->
+            <div class="img">
+              <a class="link" href="./php/login.php"><img src="../<?php echo $bookpromo['image']; ?>" alt="Book Image"></a>
+            </div>
+          <?php endif; ?>
           <h2 style="text-align: center;"><?php echo $bookpromo['title']; ?></h2>
           <p><?php echo $bookpromo['author']; ?></p>
           <span>Rp. <?php echo number_format($bookpromo['price'], 0, ',', '.'); ?></span>
@@ -326,9 +360,16 @@
 
                               <?php foreach ($bukubest as $bookbest): ?>
                                 <li class="card2">
-                                  <div class="img">
-                                    <a class="link" href="./php/login.php"><img src="../<?php echo $bookbest['image']; ?>" alt="Book Image"></a>
-                                  </div>
+                                  <?php if (isUserLoggedIn()): ?>
+            <div class="img">
+              <a class="link" href="./php/bestseller.php?id=<?php echo $bookbest['id']?>"><img src="../<?php echo $bookbest['image']; ?>" alt="Book Image"></a>
+            </div>
+          <?php else: ?>
+            <!-- Jika pengguna belum login, link akan mengarahkan ke login.php -->
+            <div class="img">
+              <a class="link" href="./php/login.php"><img src="../<?php echo $bookbest['image']; ?>" alt="Book Image"></a>
+            </div>
+          <?php endif; ?>
                                 <h2><?php echo $bookbest['title']; ?></h2>
                                 <p><?php echo $bookbest['author']; ?></p>
                                 <span>Rp. <?php echo number_format($bookbest['price'], 0, ',', '.'); ?></span>
