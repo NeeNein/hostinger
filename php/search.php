@@ -215,7 +215,6 @@
 
 
 <div class="main-result-container">
-  <h3>Hasil Pencarian</h3>
 
     <div class="search-form">
     </div>
