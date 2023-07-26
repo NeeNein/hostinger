@@ -548,6 +548,9 @@ body {
 /* Media Queries for Responsiveness */
 
 @media screen and (max-width: 900px) {
+  .container-best {
+    height: 500px;
+  }
   .container-best .wrapper2 .carouselcard2 {
     grid-auto-columns: calc((100% / 2) - 9px);
   }
