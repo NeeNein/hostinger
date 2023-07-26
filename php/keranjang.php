@@ -56,7 +56,7 @@
       <!-- Float Login -->
     <!-- Button trigger modal -->
     <!-- Buton Daftar 
-    <a type="button" class="btn btn-secondary " href="./daftar.html">
+    <a type="button" class="btn btn-secondary " href="./daftar.php">
       Daftar
     </a>
   -->
@@ -83,7 +83,7 @@
                 <input type="password" class="form-control" id="exampleInputPassword1">
               </div>
               <div class="text-center">
-                  <a>Belum punya akun? </a><a href="./daftar.html" class="text-primary fs-8">Daftar</a>
+                  <a>Belum punya akun? </a><a href="./daftar.php" class="text-primary fs-8">Daftar</a>
               </div>
             </form>
       </div>
@@ -146,7 +146,7 @@
                 <input type="password" class="form-control" id="exampleInputPassword1">
               </div>
               <div class="text-center">
-                  <a>Belum punya akun? </a><a href="./daftar.html" class="text-primary fs-8">Daftar</a>
+                  <a>Belum punya akun? </a><a href="./daftar.php" class="text-primary fs-8">Daftar</a>
               </div>
             </form>
       </div>
