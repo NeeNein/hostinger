@@ -44,7 +44,7 @@ if (isset($_GET['total'])) {
 <style>
     
   </style>
-  <title>Checkout</title>
+  <title>Buku Kita | Checkout</title>
 </head>
 <body>
 

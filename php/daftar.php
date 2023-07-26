@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" href="../css/daftar.css">
-  <title>HASH TECHIE OFFICIAL</title>
+  <title>BukuKita | Daftar</title>
 </head>
 <body>
     <section>

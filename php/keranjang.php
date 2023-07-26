@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hasil Unggah Gambar</title>
+    <title>BukuKita | Keranjang</title>
     <style>
 
 
