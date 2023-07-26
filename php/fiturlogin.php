@@ -21,7 +21,7 @@ if ($result->num_rows > 0) {
 } else {
     // Jika tidak ada data yang cocok, berarti login gagal
     echo "Email, username, atau password salah.";
-    header("Refresh: 2; URL=login.php"); // Redirect to login.php after 2 seconds
+    header("Refresh: 1; URL=login.php"); // Redirect to login.php after 2 seconds
 }
 
 $koneksi->close();
