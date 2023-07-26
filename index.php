@@ -278,7 +278,7 @@
         <?php foreach ($bukupromo as $bookpromo): ?>
         <li class="card2">
           <div class="img">
-            <a class="link" href="./php/daftar.php"><img src="./php/daftar.php"></a>
+            <a class="link" href="./php/daftar.php"><img src="../<?php echo $bookpromo['image']; ?>" alt="Book Image"></a>
           </div>
           <h2 style="text-align: center;"><?php echo $bookpromo['title']; ?></h2>
           <p><?php echo $bookpromo['author']; ?></p>
@@ -327,7 +327,7 @@
                               <?php foreach ($bukubest as $bookbest): ?>
                                 <li class="card2">
                                   <div class="img">
-                                  <a class="link" href="./php/daftar.php"><img src="./php/daftar.php"></a>
+                                    <a class="link" href="./php/daftar.php"><img src="../<?php echo $bookbest['image']; ?>" alt="Book Image"></a>
                                   </div>
                                 <h2><?php echo $bookbest['title']; ?></h2>
                                 <p><?php echo $bookbest['author']; ?></p>
