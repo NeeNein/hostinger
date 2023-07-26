@@ -274,11 +274,12 @@ body {
   .carouselcard .card2 .img {
     height: 150px;
     width: 150px;
+    margin: auto;
   }
 
   .card2 .img img {
-    width: 140px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
   }
 
   .carouselcard .card2 h2 {
@@ -349,15 +350,15 @@ body {
   transform: translateY(-50%) scale(0.85);
 }
 .container-best .wrapper2 i:first-child {
-  left: -22px;
+  left: 13px;
 }
 .container-best .wrapper2 i:last-child {
-  right: -22px;
+  right: 13px;
 }
 .container-best .wrapper2 .carouselcard2 {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: calc((100% / 4) - 7px);
+  grid-auto-columns: calc((100% / 4) - 9px);
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   gap: 16px;
@@ -476,7 +477,7 @@ body {
 .wrapperbest .carouselcardbest {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: calc((100% / 4) - 7px);
+  grid-auto-columns: calc((100% / 4) - 9px);
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   gap: 16px;
@@ -545,31 +546,14 @@ body {
 }
 
 /* Media Queries for Responsiveness */
-@media screen and (max-width: 1200px) {
-  .container-best {
-    height: 500px;
-  }
-}
 
 @media screen and (max-width: 900px) {
-  .container-best {
-    height: 400px;
-  }
   .container-best .wrapper2 .carouselcard2 {
-    grid-auto-columns: calc((100% / 3) - 7px);
+    grid-auto-columns: calc((100% / 2) - 9px);
   }
 }
 
 @media screen and (max-width: 600px) {
-  .container-best {
-    height: 300px;
-  }
-  .container-best .wrapper2 .carouselcard2 {
-    grid-auto-columns: calc((100% / 2) - 7px);
-  }
-}
-
-@media screen and (max-width: 400px) {
   .container-best .wrapper2 .carouselcard2 {
     grid-auto-columns: 100%;
   }
@@ -577,14 +561,15 @@ body {
     height: auto;
   }
 
-  .carouselcard2 .card2 .img {
+  .container-best .carouselcard2 .card2 .img {
     height: 150px;
     width: 150px;
   }
 
   .carouselcard2 .card2 .img img {
-    width: 140px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
+    margin: auto;
   }
 
   .carouselcard2 .card2 h2 {
