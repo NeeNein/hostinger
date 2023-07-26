@@ -62,9 +62,11 @@
   <a href="keranjang.php" class="text-decoration-none text-light">
   <i class="fas fa-shopping-cart me-2"></i>
 </a> <!-- Tambahkan ikon keranjang di sini, ganti kelas ikon dengan yang sesuai -->
-    <button type="button" class="btn btn-login-color" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Login
+<a href="../index.php">
+    <button type="button" class="btn btn-login-color">
+    Logout
     </button>
+    </a>
     </div>
 
 <!-- Modal -->
