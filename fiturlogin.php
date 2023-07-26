@@ -1,5 +1,5 @@
 <?php
-include 'koneksi.php';
+include './php/koneksi.php';
 // Mengambil data yang dikirim melalui metode POST
 $email = $_POST['email'];
 $password = $_POST['password'];
