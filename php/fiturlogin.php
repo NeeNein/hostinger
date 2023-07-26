@@ -4,8 +4,6 @@ include 'koneksi.php';
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-
-
 // Mengamankan data yang akan digunakan dalam query SQL
 $secured_email = $koneksi->real_escape_string($email);
 $secured_password = $koneksi->real_escape_string($password);
@@ -16,8 +14,13 @@ $result = $koneksi->query($sql);
 
 if ($result->num_rows > 0) {
     // Jika ada data yang cocok, berarti login berhasil
-    echo "Login berhasil!";
-    header("Location: index.php"); // redirect to index.html
+
+    // Get the user ID from the result (assuming you have an 'id' column in the 'users' table)
+    $user = $result->fetch_assoc();
+    $user_id = $user['id'];
+
+    // Redirect to index.php with the user ID as a parameter
+    header("Location: index.php?id=" . $user_id);
 } else {
     // Jika tidak ada data yang cocok, berarti login gagal
     echo "Email, username, atau password salah.";
