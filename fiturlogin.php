@@ -1,10 +1,14 @@
 <?php
-include './php/koneksi.php';
 // Mengambil data yang dikirim melalui metode POST
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-
+// Menghubungkan ke server database (sesuaikan dengan konfigurasi server Anda)
+include './php/koneksi.php';
+// Memeriksa koneksi
+if ($koneksi->connect_error) {
+    die("Koneksi gagal: " . $koneksi->connect_error);
+}
 
 // Mengamankan data yang akan digunakan dalam query SQL
 $secured_email = $koneksi->real_escape_string($email);
@@ -21,7 +25,6 @@ if ($result->num_rows > 0) {
 } else {
     // Jika tidak ada data yang cocok, berarti login gagal
     echo "Email, username, atau password salah.";
-    header("Refresh: 1; URL=login.php"); // Redirect to login.php after 2 seconds
 }
 
 $koneksi->close();

@@ -8,7 +8,7 @@
     <section>
         <div class="form-box">
             <div class="form-value">
-                <form action="./php/register.php" method="post">
+                <form action="../php/register.php" method="post">
                     <h2>Daftar</h2>
                     <div class="inputbox">
                         <ion-icon name="mail-outline"></ion-icon>
@@ -22,7 +22,7 @@
                     </div>
                     <button>Daftar</button>
                     <div class="register">
-                        <p>Sudah ada akun? <a href="./php/login.php">Login</a></p>
+                        <p>Sudah ada akun? <a href="login.php">Login</a></p>
                     </div>
                 </form>
             </div>

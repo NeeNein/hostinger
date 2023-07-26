@@ -47,7 +47,7 @@ if (isset($_GET['id'])) {
   <!-- Navbar Atas -->
  <nav class="navbar navbar-expand-lg navbar-dark nv-atas-color">
   <div class="container">
-    <a class="navbar-brand" href="bukukita.php">
+    <a class="navbar-brand" href="index.php">
       <img src="../promo/logo.jpg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
       BukuKita
     </a>
