@@ -1,3 +1,4 @@
+/* Default styles for all screen sizes */
 body {
   color: black;
 }
@@ -67,6 +68,7 @@ body {
   background-color: #d4d4d4;
   position: relative;
 }
+
 .sub-container-1 {
   margin-left: 25px;
   width: 200px;
@@ -175,4 +177,124 @@ body {
   text-align: center;
   font-size: 25px;
   font-weight: bold;
+}
+hr {
+  border: none;
+  height: 1px;
+  background-color: #8b8b8b;
+  margin: 20px 0;
+  width: 100%;
+}
+
+/* Media Queries for Responsive Design */
+
+/* For small screens (up to 600px) */
+@media screen and (max-width: 600px) {
+  .checkout-container {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .checkout-container form div {
+    flex-basis: 100%;
+  }
+
+  .container-item-detail {
+    max-width: 200px;
+    flex-direction: column;
+  }
+
+  .container-item-detail .image {
+    margin-right: 0;
+    padding-right: 0;
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+  .container-item-detail .right-container {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 20px;
+  }
+
+  .sub-container {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .sub-container-1 {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .sub-container-2 {
+    margin: 0;
+  }
+
+  .container-deksripsi {
+    width: 90%;
+    margin: 10px auto;
+    padding: 10px;
+  }
+
+  .container-deksripsi h3 {
+    font-size: 20px;
+  }
+
+  .sub-container-1:first-child img {
+    width: 100px;
+    height: 100px;
+  }
+  hr {
+    margin: 10px 0;
+    width: 50%;
+  }
+}
+
+/* For medium screens (601px to 900px) */
+@media screen and (min-width: 601px) and (max-width: 900px) {
+  .container-item-detail {
+    max-width: 600px;
+    width: 100%;
+  }
+
+  .checkout-container form div {
+    flex-basis: calc(50% - 10px);
+  }
+  .sub-container-2 {
+    margin: 0;
+  }
+
+  .sub-container-1 {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .sub-container {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .sub-container-1:first-child img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .container-deksripsi {
+    width: 80%;
+    margin: 5px auto;
+    padding: 15px;
+  }
+}
+
+/* For large screens (901px and above) */
+@media screen and (min-width: 901px) {
+  /* No additional changes needed for large screens */
+  .container-deksripsi {
+    width: 1000px;
+    margin: -20px auto;
+    padding: 20px;
+  }
 }
