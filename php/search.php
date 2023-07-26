@@ -247,7 +247,7 @@ if (isset($_POST['search_submit'])) {
                 echo '<a href="bestseller.php?id=' . $row['id'] . '"><img src="' . $imagePath . '" alt="Book Image"></a>';
 
                 echo '<h1 class="tolol"> ' . $row['title'] . '</h1>';
-                echo '<h2>' . $row['author'] . '</h2>';
+                echo '<h2 style="margin: auto;">' . $row['author'] . '</h2>';
                 echo '<p>Rp. ' . number_format($row['price'], 0, ',', '.') . '</p>';
                 echo '</div>';
 
