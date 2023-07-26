@@ -61,7 +61,7 @@ if ($result->num_rows > 0) {
     <!-- Navbar Atas -->
  <nav class="navbar navbar-expand-lg navbar-dark nv-atas-color">
   <div class="container">
-    <a class="navbar-brand" href="index.php">
+    <a class="navbar-brand" href="bukukita.php">
       <img src="../promo/logo.jpg" alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
       BukuKita
     </a>
