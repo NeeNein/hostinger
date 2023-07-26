@@ -142,47 +142,48 @@ if (isset($_GET['total'])) {
   </div>
 
   <div class="alamat-invoice">
-        <div class="shipping-container">
-        <div class="select-box" onclick="toggleOptions()">
-  <div class="selected-option" id="selected-option-display">Pilih opsi</div>
+  <div class="shipping-container">
+  <div class="select-box" onclick="toggleOptions()">
+    <div class="selected-option" id="selected-option-display">Pilih opsi</div>
   
-  <div class="options">
-    <div class="option" onclick="selectOption(this)">
-      <div class="option-column">
-        <p>JNE <br>  4-5 Hari Pengiriman</p>
+    <div class="options">
+      <div class="option" onclick="selectOption(this)">
+        <div class="option-column">
+          <p>JNE <br> 4-5 Hari Pengiriman</p>
+        </div>
+        <div class="option-column">
+          <span>Rp. 25.000</span>
+        </div>
       </div>
-      <div class="option-column">
-        <span>Rp. 25.000</span>
+      <div class="option" onclick="selectOption(this)">
+        <div class="option-column">
+          <p>SiCepat <br> 3-5 Hari Pengiriman</p>
+        </div>
+        <div class="option-column">
+          <span>Rp. 30.000</span>
+        </div>
       </div>
+      <div class="option" onclick="selectOption(this)">
+        <div class="option-column">
+          <p>Option 3</p>
+        </div>
+        <div class="option-column">
+          <span>Sub-option 3</span>
+        </div>
+      </div>
+      <div class="option" onclick="selectOption(this)">
+        <div class="option-column">
+          <p>Option 4</p>
+        </div>
+        <div class="option-column">
+          <span>Sub-option 4</span>
+        </div>
+      </div>
+      <!-- Tambahkan lebih banyak opsi jika diperlukan -->
     </div>
-    <div class="option" onclick="selectOption(this)">
-      <div class="option-column">
-        <p>Option 2</p>
-      </div>
-      <div class="option-column">
-        <span>Sub-option 2</span>
-      </div>
-    </div>
-    <div class="option" onclick="selectOption(this)">
-      <div class="option-column">
-        <p>Option 3</p>
-      </div>
-      <div class="option-column">
-        <span>Sub-option 3</span>
-      </div>
-    </div>
-    <div class="option" onclick="selectOption(this)">
-      <div class="option-column">
-        <p>Option 4</p>
-      </div>
-      <div class="option-column">
-        <span>Sub-option 4</span>
-      </div>
-    </div>
-    <!-- Tambahkan lebih banyak opsi jika diperlukan -->
   </div>
 </div>
-  </div>
+
 
     <div class="label-container">
       <label for="nama">Nama:</label>
