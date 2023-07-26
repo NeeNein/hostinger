@@ -20,7 +20,7 @@ if ($result->num_rows > 0) {
     $user_id = $user['id'];
 
     // Redirect to index.php with the user ID as a parameter
-    header("Location: index.php?id=" . $user_id);
+    header("Location: ../index.php?id=" . $user_id);
 } else {
     // Jika tidak ada data yang cocok, berarti login gagal
     echo "Email, username, atau password salah.";
