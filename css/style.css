@@ -557,6 +557,9 @@ body {
 }
 
 @media screen and (max-width: 600px) {
+   .container-best {
+    height: 500px;
+  }
   .container-best .wrapper2 .carouselcard2 {
     grid-auto-columns: 100%;
   }
