@@ -121,14 +121,16 @@ body {
 
 /* Import Google font - Poppins */
 .container2 {
-  width: 1200px;
   border-radius: 10px;
-  height: 600px;
   background-color: #fffad7;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: -15px auto 50px;
+  /* Updated styles for responsiveness */
+  width: 100%;
+  max-width: 1200px;
+  height: 500px;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
@@ -252,15 +254,43 @@ body {
   text-align: left;
 }
 
+/* For screen sizes up to 900px */
 @media screen and (max-width: 900px) {
   .wrapper .carouselcard {
     grid-auto-columns: calc((100% / 2) - 9px);
   }
 }
 
+/* For screen sizes up to 600px */
 @media screen and (max-width: 600px) {
   .wrapper .carouselcard {
     grid-auto-columns: 100%;
+  }
+
+  .carouselcard .card2 {
+    height: auto;
+  }
+
+  .carouselcard .card2 .img {
+    height: 150px;
+    width: 150px;
+  }
+
+  .card2 .img img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .carouselcard .card2 h2 {
+    font-size: 14px;
+  }
+
+  .carouselcard .card2 p {
+    font-size: 14px;
+  }
+
+  .carouselcard .card2 span {
+    font-size: 16px;
   }
 }
 
@@ -276,14 +306,16 @@ body {
 }
 
 .container-best {
-  width: 1200px;
   border-radius: 10px;
-  height: 600px;
   background-color: #fffad7;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: -15px auto 50px;
+  /* Updated styles for responsiveness */
+  width: 100%;
+  max-width: 1200px;
+  height: 500px;
 }
 
 .container-best .wrapper2 {
@@ -512,15 +544,59 @@ body {
   font-weight: bold;
 }
 
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 1200px) {
+  .container-best {
+    height: 500px;
+  }
+}
+
 @media screen and (max-width: 900px) {
-  .wrapperbest .carouselcardbest {
-    grid-auto-columns: calc((100% / 2) - 9px);
+  .container-best {
+    height: 400px;
+  }
+  .container-best .wrapper2 .carouselcard2 {
+    grid-auto-columns: calc((100% / 3) - 7px);
   }
 }
 
 @media screen and (max-width: 600px) {
-  .wrapperbest .carouselcardbest {
+  .container-best {
+    height: 300px;
+  }
+  .container-best .wrapper2 .carouselcard2 {
+    grid-auto-columns: calc((100% / 2) - 7px);
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .container-best .wrapper2 .carouselcard2 {
     grid-auto-columns: 100%;
+  }
+  .carouselcard2 .card2 {
+    height: auto;
+  }
+
+  .carouselcard2 .card2 .img {
+    height: 150px;
+    width: 150px;
+  }
+
+  .carouselcard2 .card2 .img img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .carouselcard2 .card2 h2 {
+    font-size: 14px;
+  }
+
+  .carouselcard2 .card2 p {
+    font-size: 14px;
+  }
+
+  .carouselcard2 .card2 span {
+    font-size: 16px;
   }
 }
 
