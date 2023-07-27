@@ -387,27 +387,26 @@
 
 <script>
     function showEditModal(id, title, author, image, kategori, deskripsi, sectionType) {
-    // Populate form fields with the book details
-    document.getElementById('editId').value = id;
-    document.getElementById('editTitle').value = title;
-    document.getElementById('editAuthor').value = author;
-    document.getElementById('editImagePreview').src = image;
-    document.getElementById('editKategori').value = kategori;
-    document.getElementById('editDeskripsi').value = deskripsi;
+        // Populate form fields with the book details
+        document.getElementById('editId').value = id;
+        document.getElementById('editTitle').value = title;
+        document.getElementById('editAuthor').value = author;
+        document.getElementById('editImagePreview').src = image;
+        document.getElementById('editKategori').value = kategori;
+        document.getElementById('editDeskripsi').value = deskripsi;
 
-    // Determine the appropriate action based on sectionType
-    const formAction = sectionType === 'best_seller' ? 'update_book_best_seller.php' : 'update_buku_promo.php';
-    document.getElementById('editForm').action = formAction;
+        // Determine the appropriate action based on sectionType
+        const formAction = sectionType === 'best_seller' ? 'update_book_best_seller.php' : 'update_buku_promo.php';
+        document.getElementById('editForm').action = formAction;
 
-    // Set the modal title based on sectionType
-    const modalTitle = sectionType === 'best_seller' ? 'Edit Book Details - Best Seller' : 'Edit Book Details - Buku Promo';
-    document.getElementById('editModalLabel').innerText = modalTitle;
+        // Set the modal title based on sectionType
+        const modalTitle = sectionType === 'best_seller' ? 'Edit Book Details - Best Seller' : 'Edit Book Details - Buku Promo';
+        document.getElementById('editModalLabel').innerText = modalTitle;
 
-    // Show the modal
-    const myModal = new bootstrap.Modal(document.getElementById('editModal'));
-    myModal.show();
-}
-
+        // Show the modal
+        const myModal = new bootstrap.Modal(document.getElementById('editModal'));
+        myModal.show();
+    }
 </script>
 
     
