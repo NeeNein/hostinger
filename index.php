@@ -142,48 +142,16 @@ function requireLogin() {
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
-              <li class="nav-item dropdown mx-2">
-          <a class="nav-link active dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Kategori</a>
-          <ul class="dropdown-menu" id="kategoriDropdown">
-            <li><a class="dropdown-item" href="#">Novel</a></li>
-            <li><a class="dropdown-item" href="#">Komedi</a></li>
-            <li><a class="dropdown-item" href="#">Religi</a></li>
-          </ul>
-        </li>
-
-        <script>
-          const dropdownItems = document.querySelectorAll('#kategoriDropdown .dropdown-item');
-
-          dropdownItems.forEach(item => {
-            item.addEventListener('click', async (event) => {
-              event.preventDefault();
-              const category = item.innerText;
-
-              try {
-                const response = await fetch(`/server.php?category=${category}`);
-                const data = await response.json();
-
-                // Di sini, Anda bisa menampilkan hasil pencarian data di dalam dropdown menu atau bentuk lainnya sesuai kebutuhan.
-                // Misalnya dengan menggunakan cara seperti innerHTML atau manipulasi DOM untuk menambahkan opsi di dropdown.
-                // Contoh:
-                const hasilDropdown = document.getElementById('hasilDropdown');
-                hasilDropdown.innerHTML = ''; // Bersihkan isi dropdown sebelum menambahkan hasil pencarian baru.
-
-                data.forEach(item => {
-                  const li = document.createElement('li');
-                  const a = document.createElement('a');
-                  a.classList.add('dropdown-item');
-                  a.href = '#';
-                  a.textContent = item.title;
-                  li.appendChild(a);
-                  hasilDropdown.appendChild(li);
-                });
-              } catch (error) {
-                console.error('Error fetching data:', error);
-              }
-            });
-          });
-        </script>
+        <!-- index.php -->
+<!-- Bagian HTML untuk menu dropdown -->
+<li class="nav-item dropdown mx-2">
+  <a class="nav-link active dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Kategori</a>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="filter.php?kategori=Novel">Novel</a></li>
+    <li><a class="dropdown-item" href="filter.php?kategori=Komedi">Komedi</a></li>
+    <li><a class="dropdown-item" href="filter.php?kategori=Religi">Religi</a></li>
+  </ul>
+</li>
 
         <li class="nav-item mx-2">
           <a class="nav-link" href="#">Pre Order</a>
