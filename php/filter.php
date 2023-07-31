@@ -30,6 +30,22 @@
         })();
       </script>
 
+<style>
+        /* Ganti CSS ini sesuai kebutuhan tampilan Anda */
+        .result-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .result-item {
+            flex-basis: calc(50% - 10px); /* Dua kolom per baris dengan jarak 10px */
+            margin: 5px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+    </style>
+
 <!-- Navbar Atas -->
 <nav class="navbar navbar-expand-lg navbar-dark nv-atas-color">
   <div class="container">
@@ -210,7 +226,7 @@
         s0.parentNode.insertBefore(s1,s0);
         })();
       </script>
-      
+
 <!-- pencarian.php -->
 <?php
 include 'koneksi.php';
@@ -233,34 +249,29 @@ $result = $koneksi->query($sql);
     <h1>Hasil Pencarian untuk Kategori: <?php echo $kategori; ?></h1>
     <ul>
         <!-- pencarian.php -->
-<?php
-// Koneksi ke database
-include 'koneksi.php';
+        <div class="result-container">
+        <?php
+        if (mysqli_num_rows($result_books) > 0) {
+            $counter = 0;
+            while ($row = mysqli_fetch_assoc($result_books)) {
+                echo '<div class="result-item">';
+                echo '<br>';
+                $imagePath = '../' . $row['image']; // Menambahkan "../" sebelum path gambar
+                echo '<a href="detail_buku.php?id=' . $row['id'] . '"><img src="' . $imagePath . '" alt="Book Image"></a>';
+                echo '<h1 class="tolol"> ' . $row['title'] . '</h1>';
+                echo '<h2>' . $row['author'] . '</h2>';
+                echo '<p>Rp. ' . number_format($row['price'], 0, ',', '.') . '</p>';
+                echo '</div>';
 
-// Periksa apakah ada parameter kategori yang dikirimkan
-if (isset($_GET['kategori'])) {
-    $kategori = $_GET['kategori'];
-    $displayedTitles = array(); // Array to store displayed titles
-
-    // Query ke database untuk mencari data dari tabel "books" berdasarkan kategori
-    $query_books = "SELECT id, title, author, price, image FROM books WHERE kategori = '$kategori'";
-    $result_books = mysqli_query($koneksi, $query_books);
-
-    // Tampilkan hasil pencarian
-    if (mysqli_num_rows($result_books) > 0) {
-        while ($row = mysqli_fetch_assoc($result_books)) {
-            echo '<div class="result-item">';
-            echo '<br>';
-            $imagePath = '../' . $row['image']; // Menambahkan "../" sebelum path gambar
-            echo '<a href="detail_buku.php?id=' . $row['id'] . '"><img src="' . $imagePath . '" alt="Book Image"></a>';
-            echo '<h1 class="tolol"> ' . $row['title'] . '</h1>';
-            echo '<h2>' . $row['author'] . '</h2>';
-            echo '<p>Rp. ' . number_format($row['price'], 0, ',', '.') . '</p>';
-            echo '</div>';
+                $counter++;
+                // Setelah dua kolom, tambahkan baris baru
+                if ($counter % 2 == 0) {
+                    echo '<br style="clear: both;">';
+                }
+            }
+        } else {
+            echo '<p class="no-result">Tidak ada hasil yang ditemukan.</p>';
         }
-    } else {
-        echo '<p class="no-result">Tidak ada hasil yang ditemukan.</p>';
-    }
-}
-?>
+        ?>
+    </div>
 
