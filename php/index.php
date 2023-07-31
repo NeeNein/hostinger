@@ -53,7 +53,7 @@
       <ul class="navbar-nav mx-auto">
         <!-- Hapus menu Home, About, dan Services -->
       </ul>
-          <form class="d-flex navbar-form" action=".php/search.php" method="POST">
+          <form class="d-flex navbar-form" action="./php/search.php" method="POST">
                <div class="input-group">
                   <input class="form-control form-control-lg" type="search" name="search_query" placeholder="Search" aria-label="Search">
                   <button class="btn btn-outline-light" type="submit" name="search_submit">Search</button>

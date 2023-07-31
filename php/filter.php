@@ -30,7 +30,6 @@
         })();
       </script>
 
-
 <!-- Navbar Atas -->
 <nav class="navbar navbar-expand-lg navbar-dark nv-atas-color">
   <div class="container">
@@ -211,7 +210,7 @@
         s0.parentNode.insertBefore(s1,s0);
         })();
       </script>
-
+      
 <!-- pencarian.php -->
 <?php
 include 'koneksi.php';
