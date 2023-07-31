@@ -149,7 +149,7 @@ function requireLogin() {
   <ul class="dropdown-menu">
     <li><a class="dropdown-item" href="./php/filter.php?kategori=Novel">Novel</a></li>
     <li><a class="dropdown-item" href="./php/filter.php?kategori=Komedi">Komedi</a></li>
-    <li><a class="dropdown-item" href="./php/filter.php?kategori=Religi">Religi</a></li>
+    <li><a class="dropdown-item" href="./php/filter.php">Religi</a></li>
   </ul>
 </li>
 
