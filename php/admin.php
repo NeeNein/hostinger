@@ -255,7 +255,7 @@
             </div>
             <div class="modal-body">
                 <!-- Add the HTML form for editing the book details -->
-                <form id="editForm" action="update_best_seller.php" method="post" enctype="multipart/form-data">
+                <form id="editForm" action="update_book_best_seller.php" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="id" id="editId">
                     <div class="row mb-3">
                         <label for="editTitle" class="col-sm-4 col-form-label">Judul Buku:</label>
