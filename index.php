@@ -147,9 +147,9 @@ function requireLogin() {
 <li class="nav-item dropdown mx-2">
   <a class="nav-link active dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Kategori</a>
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="./php/filter.php?kategori=Novel">Novel</a></li>
-    <li><a class="dropdown-item" href="./php/filter.php?kategori=Komedi">Komedi</a></li>
-    <li><a class="dropdown-item" href="./php/filter.php">Religi</a></li>
+    <li><a class="dropdown-item" href="filter.php?kategori=Novel">Novel</a></li>
+    <li><a class="dropdown-item" href="filter.php?kategori=Komedi">Komedi</a></li>
+    <li><a class="dropdown-item" href="filter.php?kategori=Religi">Religi</a></li>
   </ul>
 </li>
 

@@ -7,7 +7,7 @@ $kategori = $_GET['kategori'];
 
 // Lakukan pencarian berdasarkan kategori
 $sql = "SELECT title FROM books WHERE kategori = '$kategori'";
-$result = $conn->query($sql);
+$result = $koneksi->query($sql);
 
 ?>
 
@@ -34,5 +34,5 @@ $result = $conn->query($sql);
 
 <?php
 // Tutup koneksi database
-$conn->close();
+$koneksi->close();
 ?>
