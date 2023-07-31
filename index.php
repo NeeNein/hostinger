@@ -144,11 +144,13 @@ function requireLogin() {
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
         <li class="nav-item dropdown mx-2">
           <a class="nav-link active dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Kategori</a>
+          <form action="filter.php"></form>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Novel</a></li>
             <li><a class="dropdown-item" href="#">Komedi</a></li>
             <li><a class="dropdown-item" href="#">Religi</a></li>
           </ul>
+          </form>
         </li>
         <li class="nav-item mx-2">
           <a class="nav-link" href="#">Pre Order</a>
