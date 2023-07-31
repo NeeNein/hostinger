@@ -222,36 +222,41 @@
     </div>
 
     <div class="second-result-container">
-    <?php
 <?php
-include 'koneksi.php';
+// server.php
 
-// Fungsi untuk melakukan pencarian berdasarkan kategori
-function searchByCategory($category) {
-    $koneksi = koneksiectToDatabase();
+// Koneksi ke database
+$servername = "localhost";
+$username = "your_username";
+$password = "your_password";
+$dbname = "your_database_name";
 
-    $category = $koneksi->real_escape_string($category); // Melindungi dari SQL injection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Endpoint untuk mencari berdasarkan kategori
+if (isset($_GET['category'])) {
+    $category = $_GET['category'];
+
+    // Query untuk mencari berdasarkan kategori
     $sql = "SELECT * FROM books WHERE category = '$category'";
-    $result = $koneksi->query($sql);
+    $result = mysqli_query($conn, $sql);
 
-    if ($result->num_rows > 0) {
-        echo "<ul>";
-        while ($row = $result->fetch_assoc()) {
-            echo "<li>" . $row['title'] . "</li>";
-        }
-        echo "</ul>";
-    } else {
-        echo "Tidak ada hasil ditemukan untuk kategori " . $category;
+    $data = array();
+    while ($row = mysqli_fetch_assoc($result)) {
+        $data[] = $row;
     }
 
-    $koneksi->close();
+    header('Content-Type: application/json');
+    echo json_encode($data);
+    exit;
 }
 
-// Cek apakah ada kategori yang dipilih
-if (isset($_GET['category'])) {
-    $selectedCategory = $_GET['category'];
-    searchByCategory($selectedCategory);
-}
+mysqli_close($conn);
 ?>
+
 
 
