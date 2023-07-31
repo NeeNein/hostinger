@@ -6,7 +6,7 @@ include 'koneksi.php';
 $kategori = $_GET['kategori'];
 
 // Lakukan pencarian berdasarkan kategori
-$sql = "SELECT judul FROM books WHERE kategori = '$kategori'";
+$sql = "SELECT title FROM books WHERE kategori = '$kategori'";
 $result = $conn->query($sql);
 
 ?>
@@ -22,7 +22,7 @@ $result = $conn->query($sql);
         <?php
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                echo "<li>" . $row["judul"] . "</li>";
+                echo "<li>" . $row["title"] . "</li>";
             }
         } else {
             echo "Tidak ada buku dalam kategori ini.";
